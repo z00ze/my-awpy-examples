@@ -10,6 +10,14 @@ Notes:
     If you have many demos in the folder that are not parsed, this will murder your PC.
     Parsing 240 demos took like 8min with Ryzen 3800X
 
+
+Author:
+    Marko Loponen
+    Discord: https://discordapp.com/users/z00ze
+    Github: https://github.com/z00ze
+
+License:
+    MIT License, you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of this code.
 """
 import os
 from awpy import DemoParser
@@ -55,7 +63,7 @@ def analyze_demos(demos_folder, analyzed_folder):
 
 if __name__ == "__main__":
     start_time = time.time()
-    demos_folder = "D:/demos/"
-    analyzed_folder = "D:/demos/analyzed/"
+    demos_folder = "D:/test_demos/"
+    analyzed_folder = "D:/test_demos/analyzed/"
     analyze_demos(demos_folder, analyzed_folder)
     print("--- %s seconds ---" % (time.time() - start_time))
