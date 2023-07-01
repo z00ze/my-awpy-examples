@@ -16,10 +16,6 @@ from awpy import DemoParser
 from threading import Thread
 import time
 
-demos_folder = "D:/demos/"
-analyzed_folder = "D:/demos/analyzed/"
-analyze_threads = []
-
 def analyze_demo(demo):
     """ Analyze a demo file.
 
@@ -30,9 +26,9 @@ def analyze_demo(demo):
         None
     """
     demo_parser = DemoParser(demofile=demos_folder + demo, demo_id=demo.replace(".dem", ""), parse_rate=128, outpath=analyzed_folder)
-    data = demo_parser.parse()
+    demo_parser.parse()
 
-def analyze_demos():
+def analyze_demos(demos_folder, analyzed_folder):
     """ Analyze all demo files in the demos folder.
         Does not analyze already analyzed demos.
 
@@ -40,6 +36,7 @@ def analyze_demos():
         None
     """
     try:
+        analyze_threads = []
         demos = os.listdir(demos_folder)
         analyzed = os.listdir(analyzed_folder)
         for demo in demos:
@@ -58,5 +55,7 @@ def analyze_demos():
 
 if __name__ == "__main__":
     start_time = time.time()
-    analyze_demos()
+    demos_folder = "D:/demos/"
+    analyzed_folder = "D:/demos/analyzed/"
+    analyze_demos(demos_folder, analyzed_folder)
     print("--- %s seconds ---" % (time.time() - start_time))
